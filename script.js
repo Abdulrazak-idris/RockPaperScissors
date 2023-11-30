@@ -44,16 +44,16 @@ function game() {
        if (result === "you win") {
          user += 1
          if (user == 3) {
-             console.log("You Win");
+             document.getElementById("result").innerHTML = "YOU WIN"
          }
        } else if (result === "you loose") {
          computer += 1;
          if (computer == 3) {
-             console.log("You Loose");
+            document.getElementById("result").innerHTML = "YOU LOOSE"
          }
        }
    }
 
    if (user == computer) {
-    console.log("Draw");
+    document.getElementById("result").innerHTML = "DRAW"
    }
