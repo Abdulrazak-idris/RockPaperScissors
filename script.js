@@ -1,29 +1,59 @@
-// Computer Choice!!!
+// Computer Choice.
 function getComputerChoice() {
     let choices = [];
     choices = ["Rock", "Paper", "Scissors"];
     const randomNumber = Math.random() * choices.length;
     const index = Math.floor(randomNumber);
-    const selectedChoice = choices[index];
+    const selectedChoice = choices[index].toLowerCase();
 return selectedChoice;
 }
 
-// Player choice!!!
-function playRound(playerSelection, getComputerChoice) {
-    const myChoice = playerSelection.toLowerCase()
-    const computerSelection = getComputerChoice().toLowerCase();
-
-// Compare both choices
-    if (myChoice === "rock" && computerSelection == "scissors") {
-        console.log("You Win! Rock beats Scissors");
-    } else if (myChoice === "scissors" && computerSelection ==="paper") {
-        console.log("You Win! Scissors beats Paper");
-    } else if (myChoice === "paper" && computerSelection === "rock") {
-        console.log("You Win! Paper beats Rock");
-    } else if (myChoice === computerSelection) {
-        console.log("DRAW!! " + myChoice + " = " + computerSelection);
+// Player choice.
+// Compare both choices.
+function playRound(userChoice, getComputerChoice) {
+    let playerSelection = userChoice.toLowerCase();
+    if (playerSelection === "rock" && getComputerChoice === "scissors") {
+        return "You Win";
+    } else if (playerSelection === "scissors" && getComputerChoice ==="paper") {
+        return "You Win";
+    } else if (playerSelection === "paper" && getComputerChoice === "rock") {
+        return "You Win";
+    } else if (playerSelection === getComputerChoice) {
+        return ("Draw");
     } else {
-        console.log("You Loose! " + computerSelection + " beats " + myChoice);
+        return ("You Loose");
     }
 }
-playRound("scissors", getComputerChoice);
+
+// Game function implementation!!
+function game() {
+    const playerChoice = (prompt("What your choice").toLowerCase());
+    const computerSelection = getComputerChoice().toLowerCase();
+    return (playRound(playerChoice, computerSelection)).toLowerCase();
+};
+
+
+// Asking user 5 times.
+   let counter = 5;
+   let user = 0;
+   let computer = 0;
+
+// Loop n times, save the winner and print it letter!!
+   for (let i = 0; i < counter; i++) {
+      let result = game();
+       if (result === "you win") {
+         user += 1
+         if (user == 3) {
+             console.log("You Win");
+         }
+       } else if (result === "you loose") {
+         computer += 1;
+         if (computer == 3) {
+             console.log("You Loose");
+         }
+       }
+   }
+
+   if (user == computer) {
+    console.log("Draw");
+   }
