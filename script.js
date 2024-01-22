@@ -33,26 +33,41 @@ function game() {
 }
 
 // Asking user 5 times.
-let counter = 5;
-let user = 0;
-let computer = 0;
+// let counter = 5;
+// let user = 0;
+// let computer = 0;
 
 // Loop n times, save the winner and print it letter!!
-for (let i = 0; i < counter; i++) {
-  let result = game();
-  if (result === "you win") {
-    user += 1;
-    if (user == 3) {
-      document.getElementById("result").innerHTML = "YOU WIN";
-    }
-  } else if (result === "you loose") {
-    computer += 1;
-    if (computer == 3) {
-      document.getElementById("result").innerHTML = "YOU LOOSE";
-    }
-  }
-}
+// for (let i = 0; i < counter; i++) {
+//   let result = game();
+//   if (result === "you win") {
+//     user += 1;
+//     if (user == 3) {
+//       document.getElementById("result").innerHTML = "YOU WIN";
+//     }
+//   } else if (result === "you loose") {
+//     computer += 1;
+//     if (computer == 3) {
+//       document.getElementById("result").innerHTML = "YOU LOOSE";
+//     }
+//   }
+// }
 
-if (user == computer) {
-  document.getElementById("result").innerHTML = "DRAW";
-}
+// if (user == computer) {
+//   document.getElementById("result").innerHTML = "DRAW";
+// }
+
+document.querySelector(".btn__rock").addEventListener("click", () => {
+  let result = document.querySelector("#result");
+  result.textContent = playRound("rock", getComputerChoice());
+});
+
+document.querySelector(".btn__paper").addEventListener("click", () => {
+  let result = document.querySelector("#result");
+  result.textContent = playRound("paper", getComputerChoice());
+});
+
+document.querySelector(".btn__scissors").addEventListener("click", () => {
+  let result = document.querySelector("#result");
+  result.textContent = playRound("scissors", getComputerChoice());
+});
