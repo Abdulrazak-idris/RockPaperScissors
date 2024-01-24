@@ -1,3 +1,8 @@
+let userResult = document.querySelector(".userResult");
+let computerResult = document.querySelector(".computerResult");
+let secondValue = 0;
+let firstValue = 0;
+
 // Computer Choice.
 function getComputerChoice() {
   let choices = [];
@@ -13,61 +18,61 @@ function getComputerChoice() {
 function playRound(userChoice, getComputerChoice) {
   let playerSelection = userChoice.toLowerCase();
   if (playerSelection === "rock" && getComputerChoice === "scissors") {
+    firstValue += 1;
+    userResult.textContent = firstValue;
     return "You Win";
   } else if (playerSelection === "scissors" && getComputerChoice === "paper") {
+    firstValue += 1;
+    userResult.textContent = firstValue;
     return "You Win";
   } else if (playerSelection === "paper" && getComputerChoice === "rock") {
+    firstValue += 1;
+    userResult.textContent = firstValue;
     return "You Win";
   } else if (playerSelection === getComputerChoice) {
     return "Draw";
   } else {
+    secondValue += 1;
+    computerResult.textContent = secondValue;
     return "You Loose";
   }
 }
 
-// Game function implementation!!
-function game() {
-  const playerChoice = prompt("What your choice").toLowerCase();
-  const computerSelection = getComputerChoice().toLowerCase();
-  return playRound(playerChoice, computerSelection).toLowerCase();
-}
-
-// Asking user 5 times.
-// let counter = 5;
-// let user = 0;
-// let computer = 0;
-
-// Loop n times, save the winner and print it letter!!
-// for (let i = 0; i < counter; i++) {
-//   let result = game();
-//   if (result === "you win") {
-//     user += 1;
-//     if (user == 3) {
-//       document.getElementById("result").innerHTML = "YOU WIN";
-//     }
-//   } else if (result === "you loose") {
-//     computer += 1;
-//     if (computer == 3) {
-//       document.getElementById("result").innerHTML = "YOU LOOSE";
-//     }
-//   }
-// }
-
-// if (user == computer) {
-//   document.getElementById("result").innerHTML = "DRAW";
-// }
-
+// Choices to select!!
+// User Choice
 document.querySelector(".btn__rock").addEventListener("click", () => {
   let result = document.querySelector("#result");
-  result.textContent = playRound("rock", getComputerChoice());
+  let userChoiceBoard = document.querySelector(".choiceBoard--user");
+  userChoiceBoard.textContent = "rock";
+  // Computer choice
+  let compChoiceBoard = document.querySelector(".choiceBoard--computer");
+  let Computer = getComputerChoice();
+  compChoiceBoard.textContent = Computer;
+  let winner = playRound("rock", Computer);
+  result.textContent = winner;
 });
 
 document.querySelector(".btn__paper").addEventListener("click", () => {
   let result = document.querySelector("#result");
-  result.textContent = playRound("paper", getComputerChoice());
+  let userChoiceBoard = document.querySelector(".choiceBoard--user");
+  userChoiceBoard.textContent = "paper";
+
+  // Computer choice
+  let compChoiceBoard = document.querySelector(".choiceBoard--computer");
+  let Computer = getComputerChoice();
+  compChoiceBoard.textContent = Computer;
+  let winner = playRound("paper", Computer);
+  result.textContent = winner;
 });
 
 document.querySelector(".btn__scissors").addEventListener("click", () => {
   let result = document.querySelector("#result");
-  result.textContent = playRound("scissors", getComputerChoice());
+  let userChoiceBoard = document.querySelector(".choiceBoard--user");
+  userChoiceBoard.textContent = "scissors";
+  // Computer choice
+  let compChoiceBoard = document.querySelector(".choiceBoard--computer");
+  let Computer = getComputerChoice();
+  compChoiceBoard.textContent = Computer;
+  let winner = playRound("scissors", Computer);
+  result.textContent = winner;
 });

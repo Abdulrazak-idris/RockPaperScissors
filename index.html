@@ -14,38 +14,52 @@
   </head>
   <body>
     <h1>WELCOME TO ROCK, PAPER, SCISSORS GAME!!!</h1>
-    <p>
-      Rock Paper Scissors is An intransitive game, which is usually played
-      between two people, in which each player simultaneously choose between one
-      of three items <strong> ROCK, PAPER, SCISSORS</strong> with a defined
-      rules.
-    </p>
-    <p>
-      RULE!! <br />
-      Rock beats Scissors. Scissors beats Paper. Paper beats Rock.
-    </p>
-
+    <h2>THE RULES ARE..</h2>
+    <h3>ROCK WINS SCISSOR</h3>
+    <h3>PAPER WINS ROCK</h3>
+    <h3>SCISSORS WINS PAPER</h3>
     <div class="container">
       <div class="icon">
-        <label for="rock">ROCK</label><br />
+        <label for="rock">ROCK</label>
         <button class="btn btn__rock" id="rock">
           <i class="ph ph-hand-fist"></i>
         </button>
       </div>
 
       <div class="icon">
-        <label for="paper">PAPER</label><br />
+        <label for="paper">PAPER</label>
         <button class="btn btn__paper" id="paper">
           <i class="ph ph-hand-palm"></i>
         </button>
       </div>
       <div class="icon">
-        <label for="scissors">SCISSORS</label><br />
+        <label for="scissors">SCISSORS</label>
         <button class="btn btn__scissors" id="scissors">
           <i class="ph ph-scissors"></i>
         </button>
       </div>
     </div>
-    <div id="result"></div>
+    <h2>SCORE BOARD</h2>
+    <div class="container">
+      <div>
+        <h2>USER</h2>
+        <div class="choiceBoard choiceBoard--user choiceBoard--content"></div>
+      </div>
+      <div
+        id="result"
+        class="choiceBoard choiceBoard--content choiceBoard--result--color"
+      ></div>
+      <div>
+        <h2>COMPUTER</h2>
+        <div
+          class="choiceBoard choiceBoard--computer choiceBoard--content"
+        ></div>
+      </div>
+    </div>
+    <h2>RESULTS</h2>
+    <div class="runningScore--container">
+      <div class="choiceBoard choiceBoard--content userResult">0</div>
+      <div class="choiceBoard choiceBoard--content computerResult">0</div>
+    </div>
   </body>
 </html>
